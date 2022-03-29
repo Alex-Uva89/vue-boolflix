@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <!-- prima di partire a scrivere codice, preparo diagramma da seguire con United Diagrams -->
-    
+    <img src="../public/img/diagram.jpg" alt="">
   </div>
 </template>
 
