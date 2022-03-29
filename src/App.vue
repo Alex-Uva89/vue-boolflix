@@ -1,8 +1,8 @@
 <template>
   <div id="app">
-    <header-boolfix
-     />
-    <main-boolfix />
+    <header-boolfix />
+    <main-boolfix
+    :sendDataFilms="arrFilms" />
     <!-- prima di partire a scrivere codice, preparo diagramma da seguire con United Diagrams -->
     <img src="../public/img/diagram.jpg" alt="">
     
@@ -34,21 +34,14 @@ export default {
 
   created(){
     axios.get('https://api.themoviedb.org/3/movie/550?api_key=d8713036d3f69ddd4290d81759004203&language=it-IT')
-      .then(function (response) {
-      console.log(response);
-      console.log(response.data.original_title)
-      this.arrFilms = response.data
-      for (let film = 0; film < this.arrFilms.length; film++) {
-              if (!film.includes(this.arrFilms)) {
-                this.outerHeight
-              }  
-          }
+    .then((responseFilm) => { this.arrFilms = responseFilm.data 
+    console.log(this.arrFilms)
     })
-  },
+    },
 
   methods: {
     searchFilm(){
-
+    
     }
   }
 }

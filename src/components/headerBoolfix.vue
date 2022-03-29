@@ -1,5 +1,5 @@
 <template>
-  <div class="my-container bg-black d-flex align-items-center">
+  <header class="my-container bg-black d-flex align-items-center">
     <div class="container d-flex justify-content-between align-items-center">
       <h1 class="text-danger text-uppercase">Boolfix</h1>
       <form action="">
@@ -7,7 +7,7 @@
         <input type="text" v-model="requiredValue" @keyup.enter="$emit('sendValue', searchTitle)">
       </form>
     </div>
-  </div>
+  </header>
 </template>
 
 <script>
