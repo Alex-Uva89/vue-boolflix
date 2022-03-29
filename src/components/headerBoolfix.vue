@@ -4,7 +4,7 @@
       <h1 class="text-danger text-uppercase">Boolfix</h1>
       <form action="">
         <label for="input" class="text-white me-2">Cerca per titolo</label>
-        <input type="text">
+        <input type="text" v-model="requiredValue" @keyup.enter="$emit('sendValue', searchTitle)">
       </form>
     </div>
   </div>
@@ -16,9 +16,13 @@ export default {
     name:'HeaderBoolfix',
     data(){
       return {
-        valueSearched: '',
+        requiredValue: '',
       }
+    },
+    methods: {
+
     }
+    
 
 }
 </script>
