@@ -1,10 +1,12 @@
 <template>
   <div id="app">
-    <header-boolfix />
+    <header-boolfix
+    @sendValue="searchTitle" />
     <main-boolfix
-    :sendDataFilms="arrFilms" />
+    :sendDataFilms="arrFilms"
+    :sendDataTv="arrTv"
+     />
     <!-- prima di partire a scrivere codice, preparo diagramma da seguire con United Diagrams -->
-    <img src="../public/img/diagram.jpg" alt="">
     
   </div>
 </template>
@@ -25,23 +27,20 @@ export default {
   data(){
     return {
       arrFilms: null,
+      arrTv: null,
     }
   },
 
-  props:{
-    outputSearch: Array,
-  },
-
-  created(){
-    axios.get('https://api.themoviedb.org/3/movie/550?api_key=d8713036d3f69ddd4290d81759004203&language=it-IT')
-    .then((responseFilm) => { this.arrFilms = responseFilm.data 
-    console.log(this.arrFilms)
-    })
-    },
-
   methods: {
-    searchFilm(){
-    
+    searchTitle(value){
+      axios.get(`https://api.themoviedb.org/3/search/movie?api_key=d8713036d3f69ddd4290d81759004203&language=it-IT&query=${value}`)
+      .then((responseFilm) => { this.arrFilms = responseFilm.data.results 
+      console.log(responseFilm)
+      }),
+      axios.get(`https://api.themoviedb.org/3/search/tv?api_key=d8713036d3f69ddd4290d81759004203&language=it-IT&query=${value}`)
+      .then((responseTv) => { this.arrTv = responseTv.data.results 
+      console.log(responseTv)
+      })
     }
   }
 }
@@ -52,6 +51,9 @@ $secondary: rgba(30,30,30,.2);
 
 @import "~bootstrap/scss/bootstrap";
   // d8713036d3f69ddd4290d81759004203 API KEY
+
+  html{
+  }
 </style>
 
 

@@ -1,11 +1,12 @@
 <template>
+
   <header class="my-container bg-black d-flex align-items-center">
     <div class="container d-flex justify-content-between align-items-center">
       <h1 class="text-danger text-uppercase">Boolfix</h1>
-      <form action="">
+      <div>
         <label for="input" class="text-white me-2">Cerca per titolo</label>
-        <input type="text" v-model="requiredValue" @keyup.enter="$emit('sendValue', searchTitle)">
-      </form>
+        <input type="text" v-model="requiredValue" @keyup.enter="$emit('sendValue', requiredValue)">
+      </div>
     </div>
   </header>
 </template>
