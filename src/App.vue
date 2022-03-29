@@ -1,28 +1,24 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <!-- prima di partire a scrivere codice, preparo diagramma da seguire con United Diagrams -->
+    
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+
 
 export default {
   name: 'App',
   components: {
-    HelloWorld
-  }
+    }
 }
 </script>
 
 <style lang="scss">
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
+  // https://api.themoviedb.org/3/movie/550?api_key=d8713036d3f69ddd4290d81759004203&language=it-IT&query={{qui sa inserire la richiesta}}    ESEMPIO URL
+  // d8713036d3f69ddd4290d81759004203 API KEY
+
 </style>
+
+
