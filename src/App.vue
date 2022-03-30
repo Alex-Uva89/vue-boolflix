@@ -35,11 +35,11 @@ export default {
     searchTitle(value){
       axios.get(`https://api.themoviedb.org/3/search/movie?api_key=d8713036d3f69ddd4290d81759004203&language=it-IT&query=${value}`)
       .then((responseFilm) => { this.arrFilms = responseFilm.data.results 
-      console.log(responseFilm)
+      // console.log(responseFilm)
       }),
       axios.get(`https://api.themoviedb.org/3/search/tv?api_key=d8713036d3f69ddd4290d81759004203&language=it-IT&query=${value}`)
       .then((responseTv) => { this.arrTv = responseTv.data.results 
-      console.log(responseTv)
+      // console.log(responseTv)
       })
     }
   }
