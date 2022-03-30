@@ -56,20 +56,23 @@ export default {
         funzioneVoto(variabile){
             let result = ''
             switch (Math.floor(variabile / 2)) {
+                    case 0:
+                        result = '-'
+                        break;
                     case 1:
-                        result = '!'
+                        result = 'O'
                         break;
                     case 2:
-                        result = '!!'
+                        result = 'OO'
                         break;
                     case 3:
-                        result = '!!!'
+                        result = 'OOO'
                         break;
                     case 4:
-                        result = '!!!!'
+                        result = 'OOOO'
                         break;
                     case 5:
-                        result = '!!!!!'
+                        result = 'OOOOO'
                         break;
                 
                     default:
