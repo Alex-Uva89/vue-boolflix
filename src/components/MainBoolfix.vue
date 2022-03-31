@@ -12,25 +12,30 @@
       <!-- .................... MOVIE ...................... -->
       <div v-show="sendDataFilms != null" class="text-white text-center text-uppercase py-5 h1">Movies</div>
       <div class="container">
-        <div class="my-movies text-center">
+        <div class="my-movies text-start">
             <div v-for="filmCard in sendDataFilms" 
             :key="filmCard.id" 
             class="my-container-card">
-                <div class="my-describe-card">
-                    <h2>{{ filmCard.title }}</h2>
+                <div class="my-describe-card border border-muted">
+                    <h5>Titolo: {{ filmCard.title }}</h5>
                     <small class="overview">
                     <p v-if="filmCard.overview == []" >Trama non trovata</p>
                     <p v-else> "{{filmCard.overview}}" </p>
                     </small>
-                    <small>Titolo originale:</small>
-                    <h4>{{ filmCard.original_title }}</h4>
-                    <lang-flag :iso="filmCard.original_language" :squared="false" />
+                    
+                    <h5>Titolo originale: {{ filmCard.original_title }}</h5>
+                    <p>
+                        Paese:
+                        <lang-flag :iso="filmCard.original_language" :squared="false" />
+                    </p>
                     <div class="my-vote">
+                    <span class="text-uppercase">voto: </span>
                     <span v-for="voto in 5" 
                     :key="voto.vote_average"
                      >
-                     <i v-if="voto <= valoreVoto(filmCard.vote_average)" class="bi bi-star-fill"></i>
-                     <i v-else class="bi bi-star"></i>
+                     
+                     <i v-if="voto <= valoreVoto(filmCard.vote_average)" class="bi bi-star-fill text-warning"></i>
+                     <i v-else class="bi bi-star text-muted"></i>
                      </span>
                     </div>
                 </div>
@@ -51,7 +56,7 @@
             <div v-for="seriesCard in sendDataTv" 
             :key="seriesCard.id" 
             class="my-container-card">
-                <div class="my-describe-card"></div>
+                <div class="my-describe-card">
                 <h2>{{ seriesCard.name }}</h2>
                 <small>Titolo originale:</small>
                 <h3>{{ seriesCard.original_name }}</h3>
@@ -64,7 +69,7 @@
                      <i v-else class="bi bi-star"></i>
                      </span>
                 </div>
-
+                </div>
                 <div class="my-poster">
                     <div v-if="seriesCard.poster_path == null" class="my-poster-img d-flex flex-column justify-content-center align-items-center">
                         <span class="text-uppercase text-danger">b</span>
@@ -125,33 +130,34 @@ export default {
     height: 513px;
     margin: 10px;
     position: relative;
-    
-    &:hover{
-        border: 1px solid white;
-    }
-    
     .overview{
         height: 20%;
         font-size: .7rem;
     }
-    
 }
+
 
 .my-describe-card{
     width: 342px;
-    max-height: 513px;
+    height: 513px;
     padding: 1rem;
-    opacity: 0%;
-    transform: rotatey(-90deg);
-    transition: transform 1s opacity 1s;;
 }
 
 .my-poster{
+        width: 342px;
+        height: 513px;
         position: absolute;
         top: 0;
         left: 0;
-        transform: rotatey(0deg);
-        transition: transform 1s;
+        opacity: 100%;
+        transition: opacity 1s;
+        &:hover{
+            opacity: 0%;
+        }
+        & img{
+           width: 100%;
+           height: 100%;
+        }
         .my-poster-img{
         color: white;
         background: rgb(2,0,36);
@@ -165,6 +171,7 @@ export default {
         }
         }
     }
+    
 </style>
 
 // Milestone 1:
@@ -184,5 +191,6 @@ export default {
 Milestone 4: TODO:
 // Trasformiamo quello che abbiamo fatto fino ad ora in una vera e propria webapp, creando un layout completo simil-Netflix:
 // Un header che contiene logo e search bar
+            
 // Dopo aver ricercato qualcosa nella searchbar, i risultati appaiono sotto forma di “card” in cui lo sfondo è rappresentato dall’immagine di copertina (consiglio la poster_path con w342)
 // Andando con il mouse sopra una card (on hover), appaiono le informazioni aggiuntive già prese nei punti precedenti più la overview
